@@ -1,0 +1,24 @@
+<h1><%= @ask.topic %></h1>
+
+<% if @ask.questions.any? %>
+  <h4>Here are the questions for this ask:</h4>
+
+  <% @ask.questions.each do |question| %>
+    <ul>
+      <li>
+        <%= link_to question.text, ask_question_path(@ask, question) %>
+      </li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>No questions are listed for this ask.</p>
+<% end %>
+
+<p><%= link_to "Add a question", new_ask_question_path(@ask) %></p>
+
+<p><%= link_to "Edit", edit_ask_path(@ask) %></p>
+<p><%= link_to "Delete ask", ask_path(@ask),
+                        :data => {:confirm => "Are you sure?",
+                                       :method => "delete"} %></p>
+
+<p><%= link_to "Return to asks", asks_path %></p>

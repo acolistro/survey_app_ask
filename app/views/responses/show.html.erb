@@ -1,0 +1,10 @@
+<h1>Question: <%= @question.name %></h1>
+<h2>Ask: <%= @ask.topic %></h2>
+<h3><%= @question.lyrics %></h3>
+
+<p><%= link_to "Edit question", edit_ask_question_path(@ask, @question) %></p>
+<p><%= link_to "Delete question", ask_question_path(@ask, @question),
+                        :data => {:confirm => "Are you sure?",
+                                       :method => "delete"} %></p>
+
+<p><%= link_to "Return to ask", ask_path(@ask) %></p>

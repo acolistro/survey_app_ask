@@ -1,0 +1,14 @@
+<h1>Asks</h1>
+
+<% if @asks.any? %>
+  <ul>
+    <% @asks.each do |ask| %>
+      <li><%= link_to ask.topic, ask_path(ask) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no asks yet.</p>
+<% end %>
+
+
+<p><%= link_to "Create new ask", new_ask_path %></p>
